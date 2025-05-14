@@ -37,10 +37,10 @@ Install the required Python libraries:
 1. Make sure the **Spotify Desktop App** is running and **a track is actively playing**.
 2. Set your own Spotify credentials in the script:
    ```python
-   SPOTIPY_CLIENT_ID = 'YOUR_CLIENT_ID'
-   SPOTIPY_CLIENT_SECRET = 'YOUR_CLIENT_SECRET'
-   SPOTIPY_REDIRECT_URI = 'http://localhost:8889/callback/'
-   PLAYLIST_ID = 'YOUR_PLAYLIST_ID'
+     SPOTIPY_CLIENT_ID = 'YOUR_CLIENT_ID'
+     SPOTIPY_CLIENT_SECRET = 'YOUR_CLIENT_SECRET'
+     SPOTIPY_REDIRECT_URI = 'http://localhost:8889/callback/'
+     PLAYLIST_ID = 'YOUR_PLAYLIST_ID'
    
 3. Replace DEVICE_ID with your own playback device (see below).
 4. Run the script:
@@ -50,19 +50,19 @@ Install the required Python libraries:
 
 ## 🔧 How to Get Your Spotify Device ID
 
-from spotipy.oauth2 import SpotifyOAuth
-import spotipy
-
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
-    client_id='YOUR_CLIENT_ID',
-    client_secret='YOUR_CLIENT_SECRET',
-    redirect_uri='http://localhost:8889/callback/',
-    scope="user-library-read user-read-playback-state user-modify-playback-state"
-))
-
-devices = sp.devices()
-for device in devices['devices']:
-    print(f"Device Name: {device['name']}, Device ID: {device['id']}")
+    from spotipy.oauth2 import SpotifyOAuth
+    import spotipy
+    
+    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
+        client_id='YOUR_CLIENT_ID',
+        client_secret='YOUR_CLIENT_SECRET',
+        redirect_uri='http://localhost:8889/callback/',
+        scope="user-library-read user-read-playback-state user-modify-playback-state"
+    ))
+    
+    devices = sp.devices()
+    for device in devices['devices']:
+        print(f"Device Name: {device['name']}, Device ID: {device['id']}")
 
 
 ## 📝 Logging
@@ -72,11 +72,13 @@ The log is stored in a dedicated project folder for safety (see below).
 
 ## 📁 File Structure and Safety
 All generated files such as .cache (for Spotify token storage) and the log file are stored inside a safe directory:
+
     Documents/
     └── naarvent's projects/
         └── SpotifyMacroPad/
             ├── .cache
             └── macro_pad_log.txt
+
 This prevents interference with other Spotify-based tools or projects you may be using. The folder is created automatically on first run.
 
 
@@ -84,8 +86,8 @@ This prevents interference with other Spotify-based tools or projects you may be
 
 1. Convert the script to .exe with PyInstaller:
    
-    pip install pyinstaller
-    pyinstaller --onefile macro_pad.py
+      pip install pyinstaller
+      pyinstaller --onefile macro_pad.py
 
 2. Press Win + R, type:
    
